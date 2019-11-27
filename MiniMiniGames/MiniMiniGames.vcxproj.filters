@@ -13,5 +13,60 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\model">
+      <UniqueIdentifier>{610de090-d7a3-40ed-8c0c-0c2f7d89c046}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\view">
+      <UniqueIdentifier>{94bb69ad-44d9-442b-b569-408d714b6230}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\controller">
+      <UniqueIdentifier>{9440d983-5875-46c7-8f41-0b053adfe7f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\model\mineboom">
+      <UniqueIdentifier>{9c728272-9cd1-4844-9b3e-8cdda9813ce7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\preference">
+      <UniqueIdentifier>{3ddcd426-2408-4223-bc69-5ef31841b595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\mineboom">
+      <UniqueIdentifier>{564dbeb4-edde-45ec-8db2-d17eec300dd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\controller\mineboom">
+      <UniqueIdentifier>{8383d688-32fc-4793-94f3-d7f2d076da7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\model\baseball">
+      <UniqueIdentifier>{7c8ed05d-8076-4791-a7b3-b4c66ad2bfcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\baseball">
+      <UniqueIdentifier>{a3899dba-dffa-4879-a547-9220228137ae}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="mainsrc.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="model_mineboom.c">
+      <Filter>소스 파일\model\mineboom</Filter>
+    </ClCompile>
+    <ClCompile Include="controller_mineboom.c">
+      <Filter>소스 파일\controller\mineboom</Filter>
+    </ClCompile>
+    <ClCompile Include="model_baseball.c">
+      <Filter>소스 파일\model\baseball</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="preference_debug.h">
+      <Filter>헤더 파일\preference</Filter>
+    </ClInclude>
+    <ClInclude Include="model_mineboom.h">
+      <Filter>헤더 파일\mineboom</Filter>
+    </ClInclude>
+    <ClInclude Include="controller_mineboom.h">
+      <Filter>헤더 파일\mineboom</Filter>
+    </ClInclude>
+    <ClInclude Include="model_baseball.h">
+      <Filter>헤더 파일\baseball</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

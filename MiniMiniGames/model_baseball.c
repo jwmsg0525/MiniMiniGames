@@ -9,6 +9,9 @@
 
 S_BASEBALL_GAME* F_BASEBALL_NEWGAME() {
 	S_BASEBALL_GAME* gameboard = malloc(sizeof(S_BASEBALL_GAME));
+	if (gameboard == NULL) {
+		gameboard = F_BASEBALL_NEWGAME();
+	}
 	gameboard->gamestat = 0;
 	gameboard->outCnt = 0;
 	gameboard->tryCnt = 0;
@@ -37,6 +40,9 @@ S_BASEBALL_GAME* F_BASEBALL_NEWGAME() {
 
 S_BASEBALL_RECVSTAT* F_BASEBALL_NEWSTAT() {
 	S_BASEBALL_RECVSTAT* stat = malloc(sizeof(S_BASEBALL_RECVSTAT));
+	if (stat == NULL) {
+		stat = F_BASEBALL_NEWSTAT();
+	}
 	stat->BALL = 0;
 	stat->isERR = 1;
 	stat->isOUT = 0;

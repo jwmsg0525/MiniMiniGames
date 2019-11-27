@@ -6,7 +6,7 @@
 
 #include "model_mineboom.h"
 
-void				F_MINEBOOM_PRINTCELL(S_MINEBOOM_BOARD* board) {
+void F_MINEBOOM_PRINTCELL(S_MINEBOOM_BOARD* board) {
 	for (int i = 0; i < board->X_MAX; i++) {
 		for (int j = 0; j < board->Y_MAX; j++) {
 			printf("[%2d ] ", board->gameboard[i][j]->num);
@@ -14,7 +14,7 @@ void				F_MINEBOOM_PRINTCELL(S_MINEBOOM_BOARD* board) {
 		printf("\n");
 	}
 }
-void				F_MINEBOOM_PRINTCELL_S(S_MINEBOOM_BOARD* board) {
+void F_MINEBOOM_PRINTCELL_S(S_MINEBOOM_BOARD* board) {
 	for (int i = 0; i < board->X_MAX; i++) {
 		for (int j = 0; j < board->Y_MAX; j++) {
 			if (board->gameboard[i][j]->opend) {
@@ -28,7 +28,7 @@ void				F_MINEBOOM_PRINTCELL_S(S_MINEBOOM_BOARD* board) {
 		printf("\n");
 	}
 }
-int					F_MINEBOOM_CLICKCELL(S_MINEBOOM_BOARD* board, int posX, int posY) {
+int F_MINEBOOM_CLICKCELL(S_MINEBOOM_BOARD* board, int posX, int posY) {
 	if (!((0 <= posX) &&
 		(posX < board->X_MAX) &&
 		(0 <= posY) &&
@@ -50,10 +50,10 @@ int					F_MINEBOOM_CLICKCELL(S_MINEBOOM_BOARD* board, int posX, int posY) {
 			return 0;
 		}
 
-		clickCell(board, posX - 1, posY);
-		clickCell(board, posX + 1, posY);
-		clickCell(board, posX, posY - 1);
-		clickCell(board, posX, posY + 1);
+		F_MINEBOOM_CLICKCELL(board, posX - 1, posY);
+		F_MINEBOOM_CLICKCELL(board, posX + 1, posY);
+		F_MINEBOOM_CLICKCELL(board, posX, posY - 1);
+		F_MINEBOOM_CLICKCELL(board, posX, posY + 1);
 
 		return 0;
 	}
@@ -62,7 +62,7 @@ int					F_MINEBOOM_CLICKCELL(S_MINEBOOM_BOARD* board, int posX, int posY) {
 	}
 	return 0;
 }
-void				F_MINEBOOM_RANDOM(S_MINEBOOM_BOARD* board, int mines) {
+void F_MINEBOOM_RANDOM(S_MINEBOOM_BOARD* board, int mines) {
 	srand(time(NULL));
 
 	for (int i = 0; i < mines; i++) {
@@ -95,9 +95,14 @@ void				F_MINEBOOM_RANDOM(S_MINEBOOM_BOARD* board, int mines) {
 
 	}
 }
-S_MINEBOOM_BOARD*	F_MINEBOOM_NEWGAME(int X_MAX, int Y_MAX) {
+S_MINEBOOM_BOARD* F_MINEBOOM_NEWGAME(int X_MAX, int Y_MAX) {
 
 	S_MINEBOOM_BOARD* board = malloc(sizeof(S_MINEBOOM_BOARD));
+
+	if(board == NULL){
+		board = F_MINEBOOM_NEWGAME(X_MAX, Y_MAX);
+	}
+
 	board->X_MAX = X_MAX;
 	board->Y_MAX = Y_MAX;
 
@@ -108,8 +113,14 @@ S_MINEBOOM_BOARD*	F_MINEBOOM_NEWGAME(int X_MAX, int Y_MAX) {
 	for (int i = 0; i < X_MAX; i++) {
 		S_MINEBOOM_CELL** celline = malloc(sizeof(S_MINEBOOM_CELL*) * Y_MAX);
 		S_MINEBOOM_CELL** pCelline = celline;
+		if(celline == NULL || pCelline == NULL){
+			i--; continue;
+		}
 		for (int j = 0; j < Y_MAX; j++) {
 			S_MINEBOOM_CELL* cell = malloc(sizeof(S_MINEBOOM_CELL));
+			if (cell == NULL) {
+				j--; continue;
+			}
 			cell->num = 0;
 			cell->opend = 0;
 			*pCelline = cell;
@@ -121,7 +132,7 @@ S_MINEBOOM_BOARD*	F_MINEBOOM_NEWGAME(int X_MAX, int Y_MAX) {
 
 	return board;
 }
-void				F_MINEBOOM_DELGAME(S_MINEBOOM_BOARD* board) {
+void F_MINEBOOM_DELGAME(S_MINEBOOM_BOARD* board) {
 	for (int i = 0; i < board->X_MAX; i++) {
 		for (int j = 0; j < board->Y_MAX; j++) {
 			free(board->gameboard[i][j]);

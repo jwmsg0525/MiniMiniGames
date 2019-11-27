@@ -40,6 +40,12 @@
     <Filter Include="헤더 파일\baseball">
       <UniqueIdentifier>{a3899dba-dffa-4879-a547-9220228137ae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\model\game2048">
+      <UniqueIdentifier>{333b9937-7e38-43f0-986f-63fcb68f4beb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\game2048">
+      <UniqueIdentifier>{957d62f0-bc60-40b2-a8da-3624059d6925}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainsrc.c">
@@ -54,11 +60,11 @@
     <ClCompile Include="model_baseball.c">
       <Filter>소스 파일\model\baseball</Filter>
     </ClCompile>
+    <ClCompile Include="model_gmae2048.c">
+      <Filter>소스 파일\model\game2048</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="preference_debug.h">
-      <Filter>헤더 파일\preference</Filter>
-    </ClInclude>
     <ClInclude Include="model_mineboom.h">
       <Filter>헤더 파일\mineboom</Filter>
     </ClInclude>
@@ -67,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="model_baseball.h">
       <Filter>헤더 파일\baseball</Filter>
+    </ClInclude>
+    <ClInclude Include="model_game2048.h">
+      <Filter>헤더 파일\game2048</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

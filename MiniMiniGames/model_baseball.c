@@ -73,6 +73,7 @@ void F_BASEBALL_CHECK_CORRECT(S_BASEBALL_GAME* gameboard, S_BASEBALL_RECVSTAT* s
 
 	stat->isERR = 0;
 	
+	gameboard->tryCnt++;
 	
 }
 void F_BASEBALL_ENDSTAT(S_BASEBALL_RECVSTAT* stat) {

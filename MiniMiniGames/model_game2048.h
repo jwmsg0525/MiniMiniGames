@@ -1,0 +1,27 @@
+#pragma once
+
+#ifndef __GAME2048__
+#define __GAME2048__
+
+typedef struct S_GAME2048_BOARD {
+	int board[4][4];
+	int point;
+	int gameover; // -1 LOSE , 0 RUNNING, 1:WIN
+}S_GAME2048_BOARD;
+
+S_GAME2048_BOARD* F_GAME2048_NEWGAME();
+void F_GAME2048_NEWRANDOM(S_GAME2048_BOARD* gameboard);
+
+void F_GAME2048_MOVE_LEFT(S_GAME2048_BOARD* gmaeboard);
+void F_GAME2048_MOVE_RIGHT(S_GAME2048_BOARD* gmaeboard);
+void F_GAME2048_MOVE_UP(S_GAME2048_BOARD* gmaeboard);
+void F_GAME2048_MOVE_DOWN(S_GAME2048_BOARD* gmaeboard);
+
+void F_GAME2048_ALIGN_LEFT(S_GAME2048_BOARD* gameboard);
+void F_GAME2048_ALIGN_RIGHT(S_GAME2048_BOARD* gameboard);
+void F_GAME2048_ALIGN_UP(S_GAME2048_BOARD* gameboard);
+void F_GAME2048_ALIGN_DOWN(S_GAME2048_BOARD* gameboard);
+
+void F_GAME2048_CHECK_GAMEOVER(S_GAME2048_BOARD* gameboard);
+
+#endif // !__GAME2048__

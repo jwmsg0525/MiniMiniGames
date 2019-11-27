@@ -126,13 +126,14 @@
     <ClCompile Include="controller_mineboom.c" />
     <ClCompile Include="mainsrc.c" />
     <ClCompile Include="model_baseball.c" />
+    <ClCompile Include="model_gmae2048.c" />
     <ClCompile Include="model_mineboom.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller_mineboom.h" />
     <ClInclude Include="model_baseball.h" />
+    <ClInclude Include="model_game2048.h" />
     <ClInclude Include="model_mineboom.h" />
-    <ClInclude Include="preference_debug.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

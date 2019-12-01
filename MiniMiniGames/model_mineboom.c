@@ -36,7 +36,7 @@ int F_MINEBOOM_CLICKCELL(S_MINEBOOM_BOARD* board, int posX, int posY) {
 		))
 		return 0;
 
-	if (!board->gameboard[posX][posY]->opend) {
+	if (board->gameboard[posX][posY]->opend != 1) {
 
 		if (board->gameboard[posX][posY]->num == -1) {
 			return -1;
@@ -56,9 +56,6 @@ int F_MINEBOOM_CLICKCELL(S_MINEBOOM_BOARD* board, int posX, int posY) {
 		F_MINEBOOM_CLICKCELL(board, posX, posY + 1);
 
 		return 0;
-	}
-	else {
-		return 1;
 	}
 	return 0;
 }
@@ -105,7 +102,7 @@ S_MINEBOOM_BOARD* F_MINEBOOM_NEWGAME(int X_MAX, int Y_MAX) {
 
 	board->X_MAX = X_MAX;
 	board->Y_MAX = Y_MAX;
-
+	board->status = 0;
 	board->gameboard = malloc(sizeof(S_MINEBOOM_CELL**) * X_MAX);
 
 	S_MINEBOOM_CELL*** prtn = board->gameboard;
@@ -141,6 +138,17 @@ void F_MINEBOOM_DELGAME(S_MINEBOOM_BOARD* board) {
 	}
 	free(board->gameboard);
 	free(board);
+}
+void F_MINEBOOM_CLICKCELL_R(S_MINEBOOM_BOARD* board, int posX, int posY) {
+	if (board->gameboard[posX][posY]->opend == 0) {
+		board->gameboard[posX][posY]->opend = 2;
+	}
+	else if (board->gameboard[posX][posY]->opend == 2) {
+		board->gameboard[posX][posY]->opend = 3;
+	}
+	else if (board->gameboard[posX][posY]->opend == 3) {
+		board->gameboard[posX][posY]->opend = 0;
+	}
 }
 //int main() {
 //

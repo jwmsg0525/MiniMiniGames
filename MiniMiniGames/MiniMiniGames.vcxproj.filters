@@ -46,6 +46,45 @@
     <Filter Include="헤더 파일\game2048">
       <UniqueIdentifier>{957d62f0-bc60-40b2-a8da-3624059d6925}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\view\mineboom">
+      <UniqueIdentifier>{8345357f-7756-423f-99ef-266f792152f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\view\main">
+      <UniqueIdentifier>{afe17c92-075a-4689-9cf4-96b4eafa8a14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\controller\main">
+      <UniqueIdentifier>{c37fd560-0725-42cb-8ff3-f283d7916c17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\main">
+      <UniqueIdentifier>{0af2d6e9-7e2a-4f5e-9797-c94fa3b8189a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\model\pagesetter">
+      <UniqueIdentifier>{5e99647e-a8a4-4d3e-87b8-fa262ada8c49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\pagesetter">
+      <UniqueIdentifier>{25e17e0d-f04d-4adb-97a0-9c9899eb53ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\controller\menu">
+      <UniqueIdentifier>{7ad80e7f-d194-45b1-a10c-9e31070ecac9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\menu">
+      <UniqueIdentifier>{474d56dc-9be2-4a96-8960-a8c22dd937e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\view\menu">
+      <UniqueIdentifier>{d4258b5c-10ea-48a5-8da1-2bd0d1b5843a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\controller\baseball">
+      <UniqueIdentifier>{71fa9621-9521-4047-b05e-10c1a9140446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\view\baseball">
+      <UniqueIdentifier>{58d828c9-ca95-400f-9587-75e2e07d193e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\view\game2048">
+      <UniqueIdentifier>{b8eb7217-8ab3-4398-bb82-e6d127f07db4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\controller\game2048">
+      <UniqueIdentifier>{c3eac306-9371-433c-a686-d09298e2cc3a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainsrc.c">
@@ -63,6 +102,39 @@
     <ClCompile Include="model_gmae2048.c">
       <Filter>소스 파일\model\game2048</Filter>
     </ClCompile>
+    <ClCompile Include="controller_main.c">
+      <Filter>소스 파일\controller\main</Filter>
+    </ClCompile>
+    <ClCompile Include="view_main.c">
+      <Filter>소스 파일\view\main</Filter>
+    </ClCompile>
+    <ClCompile Include="model_pagesetter.c">
+      <Filter>소스 파일\model\pagesetter</Filter>
+    </ClCompile>
+    <ClCompile Include="model_pagesetter.h">
+      <Filter>헤더 파일\pagesetter</Filter>
+    </ClCompile>
+    <ClCompile Include="controller_menu.c">
+      <Filter>소스 파일\controller\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="view_menu.c">
+      <Filter>소스 파일\view\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="view_mineboom.c">
+      <Filter>소스 파일\view\mineboom</Filter>
+    </ClCompile>
+    <ClCompile Include="controller_baseball.c">
+      <Filter>소스 파일\controller\baseball</Filter>
+    </ClCompile>
+    <ClCompile Include="view_baseball.c">
+      <Filter>소스 파일\view\baseball</Filter>
+    </ClCompile>
+    <ClCompile Include="view_game2048.c">
+      <Filter>소스 파일\view\game2048</Filter>
+    </ClCompile>
+    <ClCompile Include="controller_game2048.c">
+      <Filter>소스 파일\controller\game2048</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="model_mineboom.h">
@@ -75,6 +147,36 @@
       <Filter>헤더 파일\baseball</Filter>
     </ClInclude>
     <ClInclude Include="model_game2048.h">
+      <Filter>헤더 파일\game2048</Filter>
+    </ClInclude>
+    <ClInclude Include="controller_main.h">
+      <Filter>헤더 파일\main</Filter>
+    </ClInclude>
+    <ClInclude Include="preference_page.h">
+      <Filter>헤더 파일\preference</Filter>
+    </ClInclude>
+    <ClInclude Include="view_main.h">
+      <Filter>헤더 파일\main</Filter>
+    </ClInclude>
+    <ClInclude Include="controller_menu.h">
+      <Filter>헤더 파일\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="view_menu.h">
+      <Filter>헤더 파일\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="view_mineboom.h">
+      <Filter>헤더 파일\mineboom</Filter>
+    </ClInclude>
+    <ClInclude Include="controller_baseball.h">
+      <Filter>헤더 파일\baseball</Filter>
+    </ClInclude>
+    <ClInclude Include="view_baseball.h">
+      <Filter>헤더 파일\baseball</Filter>
+    </ClInclude>
+    <ClInclude Include="view_game2048.h">
+      <Filter>헤더 파일\game2048</Filter>
+    </ClInclude>
+    <ClInclude Include="controller_game2048.h">
       <Filter>헤더 파일\game2048</Filter>
     </ClInclude>
   </ItemGroup>

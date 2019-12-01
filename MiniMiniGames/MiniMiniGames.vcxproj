@@ -123,17 +123,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="controller_baseball.c" />
+    <ClCompile Include="controller_game2048.c" />
+    <ClCompile Include="controller_main.c" />
+    <ClCompile Include="controller_menu.c" />
     <ClCompile Include="controller_mineboom.c" />
     <ClCompile Include="mainsrc.c" />
     <ClCompile Include="model_baseball.c" />
     <ClCompile Include="model_gmae2048.c" />
     <ClCompile Include="model_mineboom.c" />
+    <ClCompile Include="model_pagesetter.c" />
+    <ClCompile Include="model_pagesetter.h" />
+    <ClCompile Include="view_baseball.c" />
+    <ClCompile Include="view_game2048.c" />
+    <ClCompile Include="view_main.c" />
+    <ClCompile Include="view_menu.c" />
+    <ClCompile Include="view_mineboom.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="controller_baseball.h" />
+    <ClInclude Include="controller_game2048.h" />
+    <ClInclude Include="controller_main.h" />
+    <ClInclude Include="controller_menu.h" />
     <ClInclude Include="controller_mineboom.h" />
     <ClInclude Include="model_baseball.h" />
     <ClInclude Include="model_game2048.h" />
     <ClInclude Include="model_mineboom.h" />
+    <ClInclude Include="preference_page.h" />
+    <ClInclude Include="view_baseball.h" />
+    <ClInclude Include="view_game2048.h" />
+    <ClInclude Include="view_main.h" />
+    <ClInclude Include="view_menu.h" />
+    <ClInclude Include="view_mineboom.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

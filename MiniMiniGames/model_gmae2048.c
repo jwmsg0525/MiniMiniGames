@@ -20,13 +20,15 @@ S_GAME2048_BOARD* F_GAME2048_NEWGAME() {
 	gameboard->gameover = 0;
 	gameboard->point = 0;
 
+	srand(time(NULL));
+
 	F_GAME2048_NEWRANDOM(gameboard);
 	F_GAME2048_NEWRANDOM(gameboard);
 
 	return gameboard;
 }
 void F_GAME2048_NEWRANDOM(S_GAME2048_BOARD* gameboard) {
-	srand(time(NULL));
+
 	int x = rand() % 4;
 	int y = rand() % 4;
 	if (gameboard->board[x][y] == 0) 
@@ -172,4 +174,16 @@ void F_GAME2048_CHECK_GAMEOVER(S_GAME2048_BOARD* gameboard) {
 }
 void F_GAME2048_ENDGAME(S_GAME2048_BOARD* gameboard) {
 	free(gameboard);
+}
+int F_GAME2048_ALLSTACKFULL(S_GAME2048_BOARD* gameboard)
+{
+	int flag = 1;
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < 4; j++) {
+			if (!gameboard->board[i][j]) {
+				flag = 0;
+			}
+		}
+	}
+	return flag;
 }

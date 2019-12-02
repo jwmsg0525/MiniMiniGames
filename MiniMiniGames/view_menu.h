@@ -9,6 +9,6 @@ void V_SET_MENU_VIEW();
 void V_ADD_MENU_ITEM(int pos, char* data, int isSELECTED);
 void V_SET_MENU_LIST(char** data, int size, int selectedID);
 void V_SET_MENU_COLORPAIR();
-int V_SET_MENU_CLICKLISTENER(int menuSize);
+int V_SET_MENU_CLICKLISTENER(int* input, int menuSize);
 
 #endif // !__VIEW_MENU__

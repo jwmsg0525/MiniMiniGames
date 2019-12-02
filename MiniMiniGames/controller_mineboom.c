@@ -1,18 +1,24 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
+#include <stdint.h>
+#include <curses.h>
+
 #pragma warning(disable:4996)
 
 
 #include "controller_mineboom.h"
 #include "view_mineboom.h"
 
+
 void F_MINEBOOM_RUN() {
 	V_SET_MINEBOOM_VIEW();
 	S_MINEBOOM_BOARD* board = F_MINEBOOM_NEWGAME(_MINEBOOM_COL, _MINEBOOM_COL);
 	F_MINEBOOM_RANDOM(board, _MINEBOOM_COL);
-	F_MINEBOOM_LOOP_CLICKLISTEN(board);
-	
+	int64_t now = time(NULL);
+	F_MINEBOOM_LOOP_CLICKLISTEN(board,now);
+	V_SET_MINEBOOM_EXITVIEW();
 }
 
 void F_MINEBOOM_LOOP_RCLICK(S_MINEBOOM_BOARD* board, int clickx, int clicky) {
@@ -53,6 +59,9 @@ void F_MINEBOOM_CELL_UPDATE(S_MINEBOOM_BOARD* board) {
 					}
 					V_SET_MINEBOOM_CELLSTATUS(j, i, buff, 7);
 				}
+				else {
+					V_SET_MINEBOOM_CELLSTATUS(j, i, "M", 2);
+				}
 				
 			}
 			else if (board->gameboard[j][i]->opend == 2) {
@@ -68,17 +77,42 @@ void F_MINEBOOM_CELL_UPDATE(S_MINEBOOM_BOARD* board) {
 	}
 }
 
-void F_MINEBOOM_LOOP_CLICKLISTEN(S_MINEBOOM_BOARD* board) {
+void F_MINEBOOM_LOOP_CLICKLISTEN(S_MINEBOOM_BOARD* board, int64_t now) {
 	while (board->status == 0) {
-		int x, y, c;
-		V_SET_MINEBOOM_CLICK(&x, &y, &c);
+		int64_t nnow = time(NULL);
+		int x, y, c, inp;
+		V_SET_MINEBOOM_CLICK(&x, &y, &c, &inp);
 
-		if (c == -1) {
-			F_MINEBOOM_LOOP_LCLICK(board, x, y);
+		if (inp == KEY_MOUSE) {
+			if (c == -1) {
+				F_MINEBOOM_LOOP_LCLICK(board, x, y);
+			}
+			else if (c == 1) {
+				F_MINEBOOM_LOOP_RCLICK(board, x, y);
+			}
+			F_MINEBOOM_CELL_UPDATE(board);
 		}
-		else if (c == 1) {
-			F_MINEBOOM_LOOP_RCLICK(board, x, y);
-		}
-		F_MINEBOOM_CELL_UPDATE(board);
+
+		char ctime[30];
+		itoa((int)(nnow - now), ctime, 10);
+
+		char cfind[30];
+		itoa(F_MINEBOOM_FINDMINE(board), cfind, 10);
+		strcat(cfind, "/10");
+		V_SET_MINEBOOM_STATUS(ctime,cfind);
+
 	}
+}
+
+int F_MINEBOOM_FINDMINE(S_MINEBOOM_BOARD* board) {
+	int cnt = 0;
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			if (board->gameboard[i][j]->opend == 3) {
+				cnt++;
+			}
+		}
+	}
+	return cnt;
+	
 }

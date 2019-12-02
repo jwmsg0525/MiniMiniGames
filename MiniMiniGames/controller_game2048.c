@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <curses.h>
+#include <stdint.h>
+#include <time.h>
 #include "controller_game2048.h"
 #include "view_game2048.h"
 #include "model_game2048.h"
@@ -10,8 +13,10 @@
 void F_GAME2048_RUN() {
 	V_SET_GAME2048_VIEW();
 	S_GAME2048_BOARD* board = F_GAME2048_NEWGAME();
+	int64_t now = time(NULL);
 	F_GAME2048_UPDATE(board);
-	F_GAME2048_KBDLISTEN(board);
+	F_GAME2048_KBDLISTEN(board, now);
+	V_SET_GAME2048_EXITVIEW();
 }
 void F_GAME2048_UPDATE(S_GAME2048_BOARD * board) {
 	for (int i = 0; i < 4; i++) {
@@ -59,20 +64,30 @@ void F_GAME2048_UPDATE(S_GAME2048_BOARD * board) {
 		}
 	}
 }
-
-void F_GAME2048_KBDLISTEN(S_GAME2048_BOARD* board) {
+void F_GAME2048_KBDLISTEN(S_GAME2048_BOARD* board, int64_t now) {
 	while (!board->gameover) {
 		char c = getch();
-		if (c == KEY_LEFT) {
+		char ctime[30];
+		char cpoint[30];
+		int64_t nnow = time(NULL);
+		itoa((int)(nnow - now), ctime, 10);
+		itoa(board->point, cpoint, 10);
+		V_SET_GAME2048_STATUS(ctime, cpoint);
+		
+		if (c == (char)EOF || c == (char)NULL) {
+			continue;
+		}
+
+		if (c == 4) {
 			F_GAME2048_MOVE_LEFT(board);
 		}
-		else if (c == KEY_RIGHT) {
+		else if (c == 5) {
 			F_GAME2048_MOVE_RIGHT(board);
 		}
-		else if (c == KEY_UP) {
+		else if (c == 3) {
 			F_GAME2048_MOVE_UP(board);
 		}
-		else if (c == KEY_DOWN) {
+		else if (c == 2) {
 			F_GAME2048_MOVE_DOWN(board);
 		}
 
@@ -83,6 +98,6 @@ void F_GAME2048_KBDLISTEN(S_GAME2048_BOARD* board) {
 		}
 
 		F_GAME2048_UPDATE(board);
-		
+
 	}
 }

@@ -48,9 +48,17 @@ void V_SET_MENU_COLORPAIR() {
 	init_pair(3, COLOR_BLACK, COLOR_WHITE);
 }
 
-int V_SET_MENU_CLICKLISTENER(int menuSize){
+int V_SET_MENU_CLICKLISTENER(int *input, int menuSize) {
 	int mx, my;
-	LISTEN_MOUSE_CLICK(&mx,&my);
+
+	MEVENT mouseinput;
+
+	*input = wgetch(stdscr);
+	nc_getmouse(&mouseinput); // nc_ is for NCurses compatability, I guess.
+	// Aparently moving the mouse isn't a KEY_MOUSE event
+	mx = mouseinput.x;
+	my = mouseinput.y;
+
 	if (mx<29 && 0 <= ((my)/3) && ((my) / 3) < menuSize  ) {
 		return ((my) / 3);
 	}

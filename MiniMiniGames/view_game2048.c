@@ -52,3 +52,19 @@ void V_SET_GAME2048_ITEM(int X, int Y,char * data,int chrsize, int colorpair) {
 	attroff(COLOR_PAIR(colorpair));
 	refresh();
 }
+void V_SET_GAME2048_STATUS(char* time, char* point) {
+	DRAW_RACT_COLORD(5, MAX_X - 29, 6, MAX_X - 1, 1);
+	mvprintw(5, MAX_X - 29, "TIME : ");
+	mvprintw(6, MAX_X - 29, "SCORE: ");
+	mvprintw(5, MAX_X - 22, time);
+	mvprintw(6, MAX_X - 22, point);
+}
+int V_SET_GAME2048_EXITVIEW() {
+	DRAW_RACT_COLORD(((MAX_Y - 8) / 2), (MAX_X - 40) / 2, ((MAX_Y - 8) / 2) + 8, ((MAX_X - 40) / 2) + 40, 2);
+	mvprintw(((MAX_Y - 8) / 2) + 2, ((MAX_X - 40) / 2) + 16, "GAMEOVER");
+
+	int x, y;
+	LISTEN_MOUSE_CLICK(&x, &y);
+
+	return 0;
+}

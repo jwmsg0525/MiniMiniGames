@@ -7,7 +7,8 @@
 
 void V_SET_BASEBALL_VIEW();
 void V_SET_BASEBALL_COLORPAIR();
-void V_SET_BASEBAL_BOARD(int minesizeX, int minesizeY);
+void V_SET_BASEBALL_BOARD(int minesizeX);
+void V_SET_BASEBALL_NUM(int pos, int key, int cpair);
 
 
 

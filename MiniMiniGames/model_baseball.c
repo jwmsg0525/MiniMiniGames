@@ -12,9 +12,9 @@ S_BASEBALL_GAME* F_BASEBALL_NEWGAME() {
 	if (gameboard == NULL) {
 		gameboard = F_BASEBALL_NEWGAME();
 	}
-	gameboard->gamestat = 0;
 	gameboard->outCnt = 0;
 	gameboard->tryCnt = 0;
+	gameboard->gamestat = 0;
 
 	srand(time(NULL));
 
@@ -29,6 +29,7 @@ S_BASEBALL_GAME* F_BASEBALL_NEWGAME() {
 		}
 		if (flag) {
 			i--;
+			continue;
 		}
 		else {
 			gameboard->randomNums[i] = tmp;

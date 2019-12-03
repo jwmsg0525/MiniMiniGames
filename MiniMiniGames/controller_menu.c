@@ -53,7 +53,9 @@ void F_MENU_LOOP() {
 			break;
 		case 2:
 			F_GAME2048_RUN();
+			break;
 		case 3:
+			break;
 		case 4:
 			return ;
 		default:

@@ -54,8 +54,8 @@ void V_SET_GAME2048_ITEM(int X, int Y,char * data,int chrsize, int colorpair) {
 }
 void V_SET_GAME2048_STATUS(char* time, char* point) {
 	DRAW_RACT_COLORD(5, MAX_X - 29, 6, MAX_X - 1, 1);
-	mvprintw(5, MAX_X - 29, "TIME : ");
-	mvprintw(6, MAX_X - 29, "SCORE: ");
+	mvprintw(5, MAX_X - 29, "TIME :          ");
+	mvprintw(6, MAX_X - 29, "SCORE:          ");
 	mvprintw(5, MAX_X - 22, time);
 	mvprintw(6, MAX_X - 22, point);
 }

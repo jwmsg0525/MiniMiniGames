@@ -212,6 +212,36 @@ void V_SET_BASEBALL_NUM(int pos, int key, int cpair) {
 }
 
 
-void V_SET_BASEBALL_CHECKER() {
+void V_SET_BASEBALL_CHECKER(int isOut, char* ball, int strike ) {
+	DRAW_RACT_COLORD(MAX_Y-20, 33, MAX_Y - 10, 75, 3);
+	if (!isOut) {
+		mvprintw(MAX_Y - 19, 34, "              ");
+		mvprintw(MAX_Y - 18, 34, "BALL   :      ");
+		mvprintw(MAX_Y - 17, 34, "STRIKE :      ");
+		mvprintw(MAX_Y - 18, 43, ball);
+		mvprintw(MAX_Y - 17, 43, strike);
+		mvprintw(MAX_Y - 16, 34, "              ");
+	}
+	else {
+		mvprintw(MAX_Y - 19, 34, "              ");
+		mvprintw(MAX_Y - 18, 34, "     OUT      ");
+		mvprintw(MAX_Y - 17, 34, "              ");
+		mvprintw(MAX_Y - 16, 34, "              ");
+	}
+	
+}
 
+void V_SET_BASEBALL_STATUS(char* count) {
+	DRAW_RACT_COLORD(5, MAX_X - 29, 5, MAX_X - 1, 1);
+	mvprintw(5, MAX_X - 29, "COUNT: ");
+	mvprintw(5, MAX_X - 22, count);
+}
+int V_SET_BASEBALL_EXITVIEW() {
+	DRAW_RACT_COLORD(((MAX_Y - 8) / 2), (MAX_X - 40) / 2, ((MAX_Y - 8) / 2) + 8, ((MAX_X - 40) / 2) + 40, 2);
+	mvprintw(((MAX_Y - 8) / 2) + 2, ((MAX_X - 40) / 2) + 16, "GAMEOVER");
+
+	int x, y;
+	LISTEN_MOUSE_CLICK(&x, &y);
+
+	return 0;
 }

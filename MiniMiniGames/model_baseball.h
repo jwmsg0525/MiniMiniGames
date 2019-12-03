@@ -12,10 +12,10 @@ typedef struct S_BASEBALL_GAME {
 }S_BASEBALL_GAME;
 
 typedef struct S_BASEBALL_RECVSTAT {
-	int isERR : 1;
-	int isOUT : 1;
-	int STRIKE : 3;
-	int BALL : 3;
+	unsigned int isERR : 1;
+	unsigned int isOUT : 1;
+	unsigned int STRIKE : 3;
+	unsigned int BALL : 3;
 }S_BASEBALL_RECVSTAT;
 
 S_BASEBALL_GAME* F_BASEBALL_NEWGAME();
